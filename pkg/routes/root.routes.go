@@ -7,8 +7,7 @@ import (
 func GetAllRoutes() []models.Route {
 	var allRoutes []models.Route
 
-	postRoutes := PostRoutes()
-	allRoutes = append(allRoutes, postRoutes...)
+	allRoutes = append(allRoutes, PostRoutes()...)
 
 	return allRoutes
 }
