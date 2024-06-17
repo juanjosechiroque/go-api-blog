@@ -46,14 +46,7 @@ func TestGetPost(t *testing.T) {
 }
 
 func TestCreatePost(t *testing.T) {
-
-	router := mux.NewRouter()
-
-	allRoutes := routes.GetAllRoutes()
-
-	for _, route := range allRoutes {
-		router.Handle(route.Path, route.Handler).Methods(route.Method)
-	}
+	router := routes.CreateAppRouter()
 
 	server := httptest.NewServer(router)
 	defer server.Close()

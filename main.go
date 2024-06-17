@@ -4,20 +4,12 @@ import (
 	"fmt"
 	"go-api-blog/pkg/routes"
 	"net/http"
-
-	"github.com/gorilla/mux"
 )
 
 func main() {
-	router := mux.NewRouter()
+	router := routes.CreateAppRouter()
 
-	allRoutes := routes.GetAllRoutes()
+	fmt.Println("Running on port 3001")
 
-	for _, route := range allRoutes {
-		router.Handle(route.Path, route.Handler).Methods(route.Method)
-	}
-
-	fmt.Println("Starting")
-
-	http.ListenAndServe(":3000", router)
+	http.ListenAndServe(":3001", router)
 }
